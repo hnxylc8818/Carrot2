@@ -5,7 +5,6 @@ var MainMenuScene = cc.Scene.extend({
     ctor : function(){
         this._super();
         cc.audioEngine.playMusic(res.sd_mm_BGMusic_mp3, true);
-        cc.sys.localStorage.clear();
     },
     onEnter : function () {
         this._super();

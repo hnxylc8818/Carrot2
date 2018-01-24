@@ -31,6 +31,7 @@ var GameManager = {
 
     // 加载关卡数据
     loadLevelData: function (level) {
+        cc.sys.localStorage.setItem("level",level);
         this.level = level;
         this.levelData = LevelData[level];
         this.themeID = this.levelData.themeID;
@@ -174,10 +175,12 @@ var GameManager = {
 
     // getter & setter
     getLevel: function () {
-        return this.level;
+        this.level = cc.sys.localStorage.getItem("level") || 0;
+        return parseInt(this.level);
     },
     setLevel: function (level) {
         this.level = level;
+        cc.sys.localStorage.setItem("level",level);
     },
     getLevelData: function () {
         return this.levelData;
