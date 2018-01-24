@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.0" orientation="orthogonal" renderorder="left-down" width="13" height="7" tilewidth="70" tileheight="70" infinite="0" nextobjectid="55">
+ <tileset firstgid="1" name="Level1" tilewidth="70" tileheight="70" tilecount="0" columns="13">
+  <image source="../../GamePlay/Theme/Theme1/BG1/1.png" width="910" height="490"/>
+ </tileset>
+ <tileset firstgid="1" name="1" tilewidth="70" tileheight="70" tilecount="91" columns="13">
+  <image source="1.png" width="910" height="490"/>
+ </tileset>
+ <layer name="bg" width="13" height="7">
+  <data encoding="base64">
+   AQAAAAIAAAADAAAABAAAAAUAAAAGAAAABwAAAAgAAAAJAAAACgAAAAsAAAAMAAAADQAAAA4AAAAPAAAAEAAAABEAAAASAAAAEwAAABQAAAAVAAAAFgAAABcAAAAYAAAAGQAAABoAAAAbAAAAHAAAAB0AAAAeAAAAHwAAACAAAAAhAAAAIgAAACMAAAAkAAAAJQAAACYAAAAnAAAAKAAAACkAAAAqAAAAKwAAACwAAAAtAAAALgAAAC8AAAAwAAAAMQAAADIAAAAzAAAANAAAADUAAAA2AAAANwAAADgAAAA5AAAAOgAAADsAAAA8AAAAPQAAAD4AAAA/AAAAQAAAAEEAAABCAAAAQwAAAEQAAABFAAAARgAAAEcAAABIAAAASQAAAEoAAABLAAAATAAAAE0AAABOAAAATwAAAFAAAABRAAAAUgAAAFMAAABUAAAAVQAAAFYAAABXAAAAWAAAAFkAAABaAAAAWwAAAA==
+  </data>
+ </layer>
+ <objectgroup name="road" visible="0">
+  <object id="25" x="70" y="136"/>
+  <object id="26" x="213" y="143"/>
+  <object id="27" x="210" y="416"/>
+  <object id="28" x="632" y="418"/>
+  <object id="29" x="627" y="136"/>
+  <object id="30" x="770" y="140"/>
+ </objectgroup>
+ <objectgroup name="start_end" visible="0">
+  <object id="31" x="71" y="137"/>
+  <object id="33" x="771" y="141"/>
+ </objectgroup>
+ <objectgroup name="small">
+  <object id="34" name="S2" x="142" y="65"/>
+  <object id="35" name="S2" x="282" y="66"/>
+  <object id="36" name="S2" x="283" y="203"/>
+  <object id="37" name="S2" x="356" y="204"/>
+  <object id="38" name="S2" x="426" y="275"/>
+  <object id="39" name="S2" x="495" y="207"/>
+  <object id="40" name="S1" x="77" y="204"/>
+  <object id="41" name="S1" x="146" y="345"/>
+  <object id="42" x="493" y="487"/>
+  <object id="43" name="S1" x="707" y="346"/>
+  <object id="44" name="S1" x="774" y="208"/>
+  <object id="45" name="S3" x="285" y="345"/>
+ </objectgroup>
+ <objectgroup name="little">
+  <object id="52" name="L3" x="355" y="488"/>
+  <object id="53" name="L3" x="565" y="346"/>
+ </objectgroup>
+ <objectgroup name="big">
+  <object id="54" name="B1" x="561" y="68"/>
+ </objectgroup>
+ <objectgroup name="invalid">
+  <object id="46" x="5" y="489"/>
+  <object id="47" x="76" y="488"/>
+  <object id="48" x="146" y="487"/>
+  <object id="49" x="218" y="487"/>
+  <object id="50" x="777" y="488"/>
+  <object id="51" x="847" y="485"/>
+ </objectgroup>
+</map>
