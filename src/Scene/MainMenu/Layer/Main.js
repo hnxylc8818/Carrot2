@@ -70,8 +70,7 @@ var MMMainLayer = cc.Layer.extend({
                 cc.audioEngine.playEffect(res.sd_mm_Select_mp3);
                 if (this.isUpUnlock == "NO") {
                     // 分发事件[打开解锁面板]
-                    // cc.eventManager.dispatchEvent(new cc.EventCustom(jf.EventName.OPEN_UNLOCK_UP_LAYER));
-                    cc.director.runScene(new GameResultScene());
+                    cc.eventManager.dispatchEvent(new cc.EventCustom(jf.EventName.OPEN_UNLOCK_UP_LAYER));
                 } else {
                     cc.log("TODO: 实现【天天向上】按钮功能");
                 }
