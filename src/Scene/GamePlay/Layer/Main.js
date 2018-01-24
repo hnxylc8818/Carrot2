@@ -612,6 +612,9 @@ var GPMainLayer = cc.Layer.extend({
         var scene = new GameResultScene();
         cc.director.runScene(scene);
         var str = data.isWin?"赢了！":"输了！";
+        if (data.isWin){
+            GameManager.setLevel(GameManager.getLevel() + 1);
+        }
         cc.log("GPMainLayer.onGameOver():游戏结束，你" + str);
     },
     // 根据下班移除子弹
@@ -642,14 +645,14 @@ var GPMainLayer = cc.Layer.extend({
 
                         // 是否进入下一组
                         if (this.isNeedLoadNextGroup()){
-                            this.loadNextGroupMonster();
-                        }else {
                             if (GameManager.getGroup() > GameManager.getMaxGroup()){
                                 var event = new cc.EventCustom(jf.EventName.GP_GAME_OVER);
                                 event.setUserData({
                                     isWin:true
                                 });
                                 cc.eventManager.dispatchEvent(event);
+                            }else {
+                                this.loadNextGroupMonster();
                             }
                         }
                     }

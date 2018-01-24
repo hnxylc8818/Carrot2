@@ -116,13 +116,7 @@ var GRMainLayer = cc.Layer.extend({
             playDisabled,
             function () {
                 cc.audioEngine.playEffect(res.sd_mm_Select_mp3);
-                var level = 0;
-                if (GameManager.getIsWin()) {
-                    level = GameManager.getLevel() + 1;
-                } else {
-                    level = GameManager.getLevel();
-                }
-                GameManager.loadLevelData(level);
+                GameManager.loadLevelData(GameManager.getLevel());
                 cc.director.runScene(new GamePlayScene());
             }.bind(this)
         );

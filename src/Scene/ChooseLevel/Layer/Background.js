@@ -11,7 +11,7 @@ var CLBackgroundLayer = cc.Layer.extend({
         // 加载瓦片地图
         this.loadTiledMap();
         // 加载关卡
-        this.loadLevel(1);
+        this.loadLevel(GameManager.getLevel() + 1);
     },
     loadProperty: function () {
         this.zOrderMap.route = 1;     // 层级道路
@@ -71,6 +71,10 @@ var CLBackgroundLayer = cc.Layer.extend({
             case ccui.Widget.TOUCH_ENDED:
                 cc.audioEngine.playEffect(res.sd_mm_Select_mp3);
                 var level = sender.getTag();    // 关卡等级
+                if (level > GameManager.getLevel()){
+                    cc.log("请先通过第" + GameManager.getLevel() + 1 + "关");
+                    return;
+                }
                 cc.audioEngine.stopMusic();
                 // TODO:加载关卡数据，进入游戏
                 cc.LoaderScene.preload(g_gamePlay_resources,function () {
