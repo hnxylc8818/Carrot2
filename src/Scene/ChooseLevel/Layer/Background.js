@@ -72,7 +72,7 @@ var CLBackgroundLayer = cc.Layer.extend({
                 cc.audioEngine.playEffect(res.sd_mm_Select_mp3);
                 var level = sender.getTag();    // 关卡等级
                 if (level > GameManager.getLevel()){
-                    cc.log("请先通过第" + GameManager.getLevel() + 1 + "关");
+                    cc.log("请先通过第" + (GameManager.getLevel() + 1) + "关");
                     return;
                 }
                 cc.audioEngine.stopMusic();
