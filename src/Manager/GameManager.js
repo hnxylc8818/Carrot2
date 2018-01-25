@@ -180,7 +180,10 @@ var GameManager = {
     },
     setLevel: function (level) {
         this.level = level;
-        cc.sys.localStorage.setItem("level",level);
+        var localLevel = this.getLevel();
+        if (level > localLevel){
+            cc.sys.localStorage.setItem("level",level);
+        }
     },
     getLevelData: function () {
         return this.levelData;

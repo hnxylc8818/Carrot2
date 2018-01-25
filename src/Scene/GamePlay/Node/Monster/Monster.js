@@ -5,10 +5,25 @@ var Monster = cc.Sprite.extend({
     index: 0,                    // 索引
     roadIndex: 0,                // 当前移动路径的前缀
     fileNamePrefix: "",          // 帧前缀
+    originBlood: 0,               // 原始血量
+    blood: 0,                    // 当前血量
+    bloodBar: null,              // 血条
     ctor: function (fileName, data, fileNamePrefix) {
         this._super(fileName);
 
         this.loadProperty(data, fileNamePrefix);
+        this.loadBlood();
+    },
+    // 加载血条
+    loadBlood: function () {
+        var bloodBar = new ccui.LoadingBar();
+        this.addChild(bloodBar);
+        this.bloodBar = bloodBar;
+        bloodBar.loadTexture(res.cm_monster_blood);
+        bloodBar.setDirection(ccui.LoadingBar.TYPE_LEFT);
+        bloodBar.setAnchorPoint(0.5, 1);
+        bloodBar.setScale(0.6, 1.2);
+        bloodBar.setPosition(this.width / 2, this.height + 10);
     },
     // 加载属性
     loadProperty: function (data, fileNamePrefix) {
@@ -21,7 +36,21 @@ var Monster = cc.Sprite.extend({
         this.speed = data.speed;
         this.road = data.road;
         this.index = data.index;
+        this.blood = data.blood;
+        this.originBlood = data.blood;
         this.fileNamePrefix = fileNamePrefix;
+    },
+    // 扣血
+    subtractBlood: function () {
+        var isRemove = false;
+        this.blood -= 5 * (GameManager.getLevel() +1);
+        if (this.blood <= 0) {
+            this.blood = 0;
+            isRemove = true;
+        }
+        var percent = this.blood / this.originBlood * 100;
+        this.bloodBar.setPercent(percent);
+        return isRemove;
     },
     // 跑到下一个标记点
     runNextRoad: function () {
@@ -60,7 +89,7 @@ var Monster = cc.Sprite.extend({
             var frame = cc.spriteFrameCache.getSpriteFrame(name);
             frames.push(frame);
         }
-        var animation = new cc.Animation(frames,0.15);
+        var animation = new cc.Animation(frames, 0.15);
         // 设置动画播放完毕是否恢复到第一帧
         animation.setRestoreOriginalFrame(true);
 
@@ -72,25 +101,25 @@ var Monster = cc.Sprite.extend({
         this.runNextRoad();
         this.playRunAnimation();
     },
-    getRoad : function(){
+    getRoad: function () {
         return this.road;
     },
-    setRoad : function(road){
+    setRoad: function (road) {
         this.road = road;
     },
-    getData : function(){
+    getData: function () {
         return this.data;
     },
-    getSpeed : function () {
+    getSpeed: function () {
         return this.speed;
     },
-    setSpeed : function(speed){
+    setSpeed: function (speed) {
         this.speed = speed;
     },
-    getIndex : function () {
+    getIndex: function () {
         return this.index;
     },
-    setIndex : function(index){
+    setIndex: function (index) {
         this.index = index;
     }
 });

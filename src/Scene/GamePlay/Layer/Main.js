@@ -480,7 +480,8 @@ var GPMainLayer = cc.Layer.extend({
         var monsterData = {
             road: this.roadPointArray,
             speed: data.speed,
-            index: data.index
+            index: data.index,
+            blood:data.blood
         };
 
         var namePrefix = data.name.substring(0, data.name.length - 1);
@@ -641,7 +642,9 @@ var GPMainLayer = cc.Layer.extend({
                         // 移除子弹
                         this.removeBulletByIndex(x);
                         // 移除怪物
-                        this.removeMonsterByIndex(y,z);
+                        if (enemy.subtractBlood()){
+                            this.removeMonsterByIndex(y,z);
+                        }
 
                         // 是否进入下一组
                         if (this.isNeedLoadNextGroup()){

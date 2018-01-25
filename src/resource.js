@@ -108,6 +108,7 @@ var res = {
     // Common
     //////////////////////////////////////////
     cm_woodbg_notice_png : "res/Common/bg/woodbg_notice.png",
+    cm_monster_blood:"res/Common/monster_blood.png",
 
     //////////////////////////////////////////
     // UI
